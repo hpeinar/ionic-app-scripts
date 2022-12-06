@@ -57,7 +57,7 @@ function createHttpServer(config) {
     app.set('serveConfig', config);
     app.get('/', serveIndex);
     app.use('/', express.static(config.wwwDir));
-    app.use("/" + serve_config_1.LOGGER_DIR, express.static(path.join(__dirname, '..', '..', 'bin'), { maxAge: 31536000 }));
+    app.use(serve_config_1.LOGGER_DIR, express.static(path.join(__dirname, '..', '..', 'bin'), { maxAge: 31536000 }));
     // Lab routes
     app.use(serve_config_1.IONIC_LAB_URL + '/static', express.static(path.join(__dirname, '..', '..', 'lab', 'static')));
     app.get(serve_config_1.IONIC_LAB_URL, lab_1.LabAppView);
