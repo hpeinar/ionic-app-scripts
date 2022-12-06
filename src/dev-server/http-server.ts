@@ -42,6 +42,7 @@ export function createHttpServer(config: ServeConfig): express.Application {
   app.get('/cordova.js', servePlatformResource, serveMockCordovaJS);
   app.get('/cordova_plugins.js', servePlatformResource);
   app.get('/plugins/*', servePlatformResource);
+  app.get('/*', serveIndex);
 
   if (config.useProxy) {
     setupProxies(app);
@@ -125,8 +126,8 @@ async function servePlatformResource(req: express.Request, res: express.Response
 }
 
 /**
- * Determines the appropriate resource path, and checks if the specified url 
- * 
+ * Determines the appropriate resource path, and checks if the specified url
+ *
  * @returns string of the resource path or undefined if there is no match
  */
 async function getResourcePath(url: string, config: ServeConfig, userAgent: string): Promise<string> {

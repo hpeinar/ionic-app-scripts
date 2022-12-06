@@ -19,7 +19,7 @@ export interface ServeConfig {
   useProxy: boolean;
   devapp: boolean;
 }
-export const LOGGER_DIR = '__ion-dev-server';
+export const LOGGER_DIR = '/__ion-dev-server';
 export const IONIC_LAB_URL = '/ionic-lab';
 
 export const IOS_PLATFORM_PATHS = [path.join('platforms', 'ios', 'www')];
